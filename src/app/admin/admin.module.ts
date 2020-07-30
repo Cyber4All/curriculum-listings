@@ -17,6 +17,8 @@ import { PrivilegesListComponent } from './components/user-privileges/privileges
 import { CoreModule } from './core/core.module';
 import { LearningObjectListItemComponent } from './components/learning-object-list-item/learning-object-list-item.component';
 import { VirtualScrollerModule } from 'ngx-virtual-scroller';
+import { TopicsComponent } from './pages/topics/topics.component';
+import { CubeSharedModule } from 'app/cube/shared/cube-shared.module';
 import { ChangeAuthorComponent } from './components/change-author/change-author.component';
 import { ChangeAuthorUserDropdownComponent } from './components/change-author/components/change-author-user-dropdown/change-author-user-dropdown.component';
 import { FeaturedComponent } from './pages/featured/featured.component';
@@ -38,6 +40,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     UserPrivilegesComponent,
     PrivilegesListComponent,
     LearningObjectListItemComponent,
+    TopicsComponent,
     ChangeAuthorComponent,
     ChangeAuthorUserDropdownComponent,
     FeaturedComponent,
@@ -53,9 +56,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     CommonModule,
     AdminRoutingModule,
     SharedModule,
-    FormsModule,
     VirtualScrollerModule,
-    DragDropModule,
+    CubeSharedModule,
   ],
 })
 export class AdminModule { }

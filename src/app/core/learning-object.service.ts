@@ -54,6 +54,14 @@ export class LearningObjectService {
     );
   }
 
+  fetchUnassignedLearningObjects() {
+    return this.http.get('http://localhost:5001/learning-objects/unassigned', { withCredentials: true }).toPromise();
+  }
+
+  discoverLearningObjectTopics() {
+    return this.http.get('http://localhost:5001/topics/assign').toPromise();
+  }
+
   fetchLearningObjectWithResources(
     params: { author?: string, cuidInfo?: { cuid: string, version?: number }, id?: string },
     resources?: string[],

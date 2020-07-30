@@ -1,0 +1,25 @@
+<div class='background'>
+  <div class='top-bar'>
+    <div class='top-bar__inner'>
+      <div class='top-bar__inner__left'>
+        BROWSE BY TOPIC
+      </div>
+      <div class='top-bar__inner__right'>
+        CLARK has {{ topics.length }} topics to browse
+      </div>
+    </div>
+  </div>
+  <div class='topics-grid'>
+    <div *ngFor='let topic of topics'>
+      <div 
+        class='topic-card'
+        [routerLink]="['/browse']"
+        [queryParams]="{ topic: topic }"
+      >
+        {{ topic.length > 50 ? topic.slice(0, 50) + ' ...' : topic }} 
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -16,6 +16,7 @@ import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.com
 import { AccessibilityStatementComponent } from './accessibility-statement/accessibility-statement.component';
 import { PressComponent } from './press/press.component';
 import { OutagePageComponent } from './outage-page/outage-page.component';
+import { TopicBrowseComponent } from './topic-browse/topic-browse.component';
 import { DonateComponent } from './donate/donate.component';
 
 const details = {
@@ -40,6 +41,11 @@ const cube_routes: Routes = [
       { path: 'c/:abvName', component: CollectionDetailsComponent },
       { path: 'c', component: CollectionsComponent },
       { path: 'organization/:query', component: OrganizationListComponent },
+      {
+        path: 'topicbrowse',
+        component: TopicBrowseComponent,
+        data: { title: 'Browse Learning Objects'}
+      },
       {
         path: 'browse',
         component: BrowseComponent,

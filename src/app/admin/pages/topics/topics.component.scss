@@ -1,0 +1,220 @@
+@import '~_vars.scss';
+
+.list {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+    box-sizing: border-box;
+    min-height: 500px;
+    overflow: hidden;
+    margin-top: 40px;
+  }
+  
+  .list__body {
+    .body__column-headers,
+    ::ng-deep .row-item {
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 32px 2.5fr 100px 80px 120px 50px;
+      grid-gap: 0 50px;
+      align-items: center;
+    }
+  
+    ::ng-deep .row-item {
+      & > div {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+    }
+  
+    .body__column-headers {
+      font-size: $small;
+      color: $dark-grey;
+      padding-top: 20px;
+      padding-bottom: 10px;
+    }
+  
+    clark-learning-object-list-item {
+      position: relative;
+      display: block;
+    }
+  }
+  
+  .empty-template {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    color: $dark-grey;
+    font-size: $normal;
+  }
+  
+  .empty-template__top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    color: $dark-grey;
+    font-size: $larger;
+    margin-bottom: 10px;
+  }
+  
+  .svg-inline--fa {
+    font-size: $largest;
+    margin-right: 10px;
+  }
+  
+  .loadingOrFinished__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  
+    color: $dark-grey;
+    font-size: $large;
+    padding: 40px;
+  
+    .svg-inline--fa {
+      color: $light-blue;
+      font-size: $larger;
+      margin-bottom: 20px;
+    }
+  }
+  
+.header__text {
+  color: $dark-grey;
+}
+
+.prompt {
+  padding: 20px;
+}
+
+.fa-spin {
+  color: $light-blue;
+}
+
+.prompt__text {
+  color: $dark-grey;
+  margin-bottom: 30px;
+}
+
+.left-side-panel {
+  padding: 20px;
+  text-align: left;
+  background-color: white;
+  overflow: hidden;
+}
+
+.right-side-panel {
+  padding: 20px;
+  overflow: hidden;
+  text-align: left;
+  width: 700px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  padding: 20px;
+  height: 100vh;
+  overflow: auto;
+}
+
+.topic-object__card {
+  display: grid;
+  grid-template-columns: 500px 130px;
+  color: $dark-grey;
+  padding-bottom: 10px;
+  text-align: left;
+}
+
+.topic-name__card {
+  color: $dark-grey;
+  border-bottom: 1px solid $light-grey;
+  padding: 10px 0;
+  display: flex;
+}
+
+.selected {
+  color: $light-blue;
+}
+
+.topic-header {
+  color: $dark-grey;
+  font-weight: 500;
+}
+
+.results-popup {
+  max-height: 700px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.topic-names__container {
+  padding: 20px;
+}
+
+.topic-name__card__name {
+  margin-left: 10px;
+  padding-bottom: 5px;
+  font-size: $normal;
+  border: none;
+  outline: none;
+}
+
+.panel-header {
+  color: $light-blue;
+}
+
+.side-panel__scrollable {
+  max-height: 500px;
+  overflow: scroll;
+  padding: 0 20px;
+}
+
+.submit-button {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.move-button {
+  font-size: $smaller;
+  text-align: center;
+  height: 20px;
+  color: $light-blue;
+  border: none;
+  outline: none;
+  margin-top: 40%;
+  font-size: $small;
+}
+
+.move-button:hover {
+  text-decoration: underline;
+}
+
+.move-icon {
+  font-size: .75em;
+  margin-left: 10px;
+}
+
+.change-topic-name__item {
+  border-bottom: 1px solid $light-grey;
+  padding: 10px 0;
+}
+
+.change-topic-name__back-button {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.change-topic-name__submit-button {
+  margin-top: 10px;
+  float: right;
+}

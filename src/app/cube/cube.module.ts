@@ -44,6 +44,7 @@ import { MediaItemComponent } from './press/components/media-item/media-item.com
 import { OutagePageComponent } from './outage-page/outage-page.component';
 import { OutageCardComponent } from './outage-page/outage-card/outage-card.component';
 import { PastIssueComponent } from './outage-page/past-issue/past-issue.component';
+import { TopicBrowseComponent } from './topic-browse/topic-browse.component';
 import { DonateComponent } from './donate/donate.component';
 
 
@@ -74,6 +75,7 @@ import { DonateComponent } from './donate/donate.component';
     OutagePageComponent,
     OutageCardComponent,
     PastIssueComponent,
+    TopicBrowseComponent,
     DonateComponent,
   ],
   imports: [
