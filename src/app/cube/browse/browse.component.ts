@@ -9,8 +9,8 @@ import { lengths } from '@cyber4all/clark-taxonomy';
 import {
   SuggestionService
  } from '../../onion/core/suggestion.service';
- import { FilterSection } from './components/filter/filter.component';
- import { COPY } from './browse.copy';
+import { FilterSection } from './components/filter/FilterSection';
+import { COPY } from './browse.copy';
 import { Observable, Subject } from 'rxjs';
 import { AuthService } from '../../core/auth.service';
 import { CollectionService } from '../../core/collection.service';
@@ -18,6 +18,7 @@ import { OrderBy, Query, SortType } from '../../interfaces/query';
 import { ModalListElement, ModalService, Position } from '../../shared/modules/modals/modal.module';
 import { LearningObjectService } from '../learning-object.service';
 import { OutcomeService } from 'app/core/outcome.service';
+import { TopicListLoader } from '../core/topic-list.loader';
 
 @Component({
   selector: 'cube-browse',
@@ -43,6 +44,7 @@ export class BrowseComponent implements AfterViewInit, OnDestroy {
     sortType: undefined,
     collection: '',
     fileTypes: [],
+    topic: [],
   };
 
   tooltipText = {
@@ -107,6 +109,13 @@ export class BrowseComponent implements AfterViewInit, OnDestroy {
           name: 'video',
         }
       ]
+    },
+    {
+      title: 'topic',
+      name: 'topic',
+      type: 'select-one',
+      canSearch: false,
+      values: [],
     }
   ];
   searchDelaySubject: any;
@@ -140,6 +149,7 @@ export class BrowseComponent implements AfterViewInit, OnDestroy {
     private collectionService: CollectionService,
     private cd: ChangeDetectorRef,
     private outcomeService: OutcomeService,
+    private readonly topicListLoader: TopicListLoader,
   ) {
     this.windowWidth = window.innerWidth;
     this.cd.detach();
@@ -180,6 +190,16 @@ export class BrowseComponent implements AfterViewInit, OnDestroy {
         // remove the collection section of the filters since we couldn't load collections
         this.filters = this.filters.filter(f => f.name !== 'collection');
       }
+
+      try {
+        const topics = await this.topicListLoader.load();
+        this.filters[5].values = topics.map((topic) => ({ name: topic, value: topic }));
+      } catch (error) {
+        console.error(error);
+        // remove the topics section of the filters since we couldn't load topics
+        this.filters = this.filters.filter(f => f.name !== 'topic');
+      }
+
       // makes query based and sends request to fetch learning objects
       this.makeQuery(params);
       this.fetchLearningObjects(this.query);
